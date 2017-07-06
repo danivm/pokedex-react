@@ -1,3 +1,5 @@
-## Step 2
+## Step 3
 
-React PropTypes
+React State
+- Call PokeAPI
+- Print Pokemons

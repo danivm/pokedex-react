@@ -1,10 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
-import HelloWorld from './HelloWorld'
+import PokemonList from './PokemonList'
 
 const App = () => (
   <div className="container">
-    <HelloWorld name="Dani"/>
+    <h1>Pokedex - React Edition</h1>
+    <PokemonList />
   </div>
 )
 
