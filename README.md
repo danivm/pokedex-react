@@ -1,3 +1,3 @@
-## Step 3
+## Step 2
 
-Create your first component.
+React PropTypes

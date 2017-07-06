@@ -1,8 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
+import HelloWorld from './HelloWorld'
 
-const MyFirstComponent = () => (
-  <h3>This is my first component</h3>
+const App = () => (
+  <div className="container">
+    <HelloWorld name="Dani"/>
+  </div>
 )
 
-render(<MyFirstComponent />, document.getElementById('root'))
+render(<App />, document.getElementById('root'))
