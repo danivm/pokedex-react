@@ -1,5 +1,3 @@
-## Step 3
+## Step 4
 
-React State
-- Call PokeAPI
-- Print Pokemons
+Create Pokemon Cards
