@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import PokemonCard from '../PokemonCard'
 
 class PokemonList extends Component {
-  constructor(){
-    super()
-    this.state = {
-      pokemons: [],
-      loading: true
-    }
+  state = {
+    pokemons: [],
+    loading: true
   }
 
   componentWillMount(){
