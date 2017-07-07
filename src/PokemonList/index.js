@@ -4,16 +4,13 @@ import PokemonCard from '../PokemonCard'
 class PokemonList extends Component {
   state = {
     pokemons: [],
-    loading: true
+    loading: true,
+    filteredName: ''
   }
 
   componentWillMount(){
     fetch('http://pokeapi.co/api/v2/pokemon?limit=151')
       .then(res => res.json())
-      .then(res => {
-        console.log(res)
-        return res
-      })
       .then(res => { 
         this.setState({ 
           pokemons: res.results,
@@ -22,10 +19,33 @@ class PokemonList extends Component {
       })
   }
 
+  handleChange = (e) => {
+    const input = e.target.value
+    this.setState({ filteredName: input })
+  }
+
+  filterNames = (pokemonId) => {
+    const { pokemons, filteredName } = this.state
+    if (filteredName==='') {
+      return true
+    } else if (pokemons[pokemonId].name.includes(filteredName)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
-    const { pokemons } = this.state
+    const { pokemons, filterName } = this.state
     return(
       <div>
+        <br/>
+          <input
+            className="form-control"
+            value={filterName}
+            onChange={this.handleChange}
+          />
+        <br/>
         {
           this.state.loading &&
           <p>Loading</p>
@@ -34,8 +54,8 @@ class PokemonList extends Component {
           !this.state.loading &&
           Object
             .keys(pokemons)
+            .filter(this.filterNames)
             .map(num => {
-              console.log(num, pokemons[num]['name'])
               return(
                 <PokemonCard 
                   key={num} 
