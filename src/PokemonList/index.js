@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 
 class PokemonList extends Component {
-  constructor(){
-    super()
-    this.state = {
-      pokemons: []
-    }
+  state = {
+    pokemons: []
   }
 
-  componentWillMount(){
+  handleClick = () => {
     fetch('http://pokeapi.co/api/v2/pokemon?limit=151')
       .then(res => res.json())
       .then(res => { 
@@ -21,6 +18,10 @@ class PokemonList extends Component {
     const { pokemons } = this.state
     return(
       <div>
+        <button
+          className="btn btn-danger" 
+          onClick={this.handleClick}
+        >Catch them all!</button>
         {
           Object
             .keys(pokemons)
